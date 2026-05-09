@@ -184,7 +184,7 @@ struct PlaylistDetailView: View {
                     // Play + Shuffle bar
                     HStack(spacing: 16) {
                         Button {
-                            if let first = tracks.first {
+                            if !tracks.isEmpty {
                                 player.playPlaylist(Playlist(
                                     id: playlist.id, name: playlist.name,
                                     description: playlist.description,
@@ -209,7 +209,7 @@ struct PlaylistDetailView: View {
 
                         Button {
                             player.isShuffle = true
-                            if let first = tracks.shuffled().first {
+                            if !tracks.isEmpty {
                                 player.playPlaylist(Playlist(
                                     id: playlist.id, name: playlist.name,
                                     description: playlist.description,

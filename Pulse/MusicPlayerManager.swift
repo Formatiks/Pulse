@@ -46,7 +46,7 @@ final class MusicPlayerManager: ObservableObject {
     // MARK: - Queue Management
 
     func play(track: Track, queue: [Track] = []) {
-        var q = queue.isEmpty ? [track] : queue
+        let q = queue.isEmpty ? [track] : queue
         let idx = q.firstIndex(where: { $0.id == track.id }) ?? 0
         var pq = PlayerQueue()
         pq.tracks = isShuffle ? q.shuffled() : q
@@ -192,12 +192,16 @@ final class MusicPlayerManager: ObservableObject {
         timeObserver = player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
             guard let self else { return }
             let current = time.seconds
-            let dur = self.playerItem?.duration.seconds ?? 0
-            if dur > 0 {
-                self.currentTime = current
-                self.progress = current / dur
-                self.duration = dur
-                self.updateNowPlayingInfo()
+            // Hop onto MainActor to touch @Published properties safely
+            Task { @MainActor [weak self] in
+                guard let self else { return }
+                let dur = self.playerItem?.duration.seconds ?? 0
+                if dur > 0 {
+                    self.currentTime = current
+                    self.progress = current / dur
+                    self.duration = dur
+                    self.updateNowPlayingInfo()
+                }
             }
         }
     }
