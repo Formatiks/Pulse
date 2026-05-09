@@ -115,7 +115,7 @@ struct SearchView: View {
                 Image(systemName: "magnifyingglass")
                     .font(.system(size: 48))
                     .foregroundStyle(.secondary)
-                Text("No results for "\(query)"")
+                Text("No results for \"\(query)\"")
                     .font(.system(size: 18, weight: .semibold))
                 Text("Check the spelling, or try a different term.")
                     .font(.system(size: 14))
@@ -295,7 +295,7 @@ struct BrowseCategoriesView: View {
                 LazyVGrid(columns: columns, spacing: 12) {
                     ForEach(categories, id: \.0) { cat in
                         ZStack(alignment: .bottomLeading) {
-                            cat.2.gradient
+                            Rectangle().fill(cat.2.gradient)
                             VStack {
                                 Spacer()
                                 HStack {
