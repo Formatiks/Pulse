@@ -97,7 +97,7 @@ struct HomeView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("muse")
+                    Text("pulse")
                         .font(.system(size: 24, weight: .heavy, design: .rounded))
                         .foregroundStyle(Color(hex: "#1DB954"))
                 }
