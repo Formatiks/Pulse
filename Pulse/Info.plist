@@ -11,7 +11,7 @@
 			<string>com.formatiks.Pulse</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>pulse://</string>
+				<string>pulse</string>
 			</array>
 		</dict>
 	</array>
