@@ -9,8 +9,8 @@ import UIKit
 // MARK: - Config (fill these in Info.plist / Secrets.xcconfig)
 private enum SpotifyConfig {
     /// Set in your Xcode project under Build Settings > User-Defined
-    static let clientID     = Bundle.main.infoDictionary?["SPOTIFY_CLIENT_ID"] as? String ?? ""
-    static let clientSecret = Bundle.main.infoDictionary?["SPOTIFY_CLIENT_SECRET"] as? String ?? ""
+    static let clientID     = Bundle.main.infoDictionary?["SPOTIFY_CLIENT_ID"] as? String ?? "f339a5189b8c40dda5cd0cdc84db4296"
+    static let clientSecret = Bundle.main.infoDictionary?["SPOTIFY_CLIENT_SECRET"] as? String ?? "76e3d34ef63249fc8a5526a8669a2281"
     static let redirectURI  = Bundle.main.infoDictionary?["SPOTIFY_REDIRECT_URI"] as? String ?? "muse://spotify-callback"
     static let scopes       = "streaming user-read-playback-state user-modify-playback-state user-read-currently-playing user-library-read user-library-modify playlist-read-private user-top-read"
 }
