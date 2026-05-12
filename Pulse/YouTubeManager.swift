@@ -17,7 +17,7 @@ final class YouTubeManager: ObservableObject {
     static let shared = YouTubeManager()
 
     // Change to your server URL if running remotely
-    private let serverBase = "http://mc.anozon.it:8765"
+    private let serverBase = "https://yt.anozon.it"
     private let session = URLSession.shared
 
     @Published var searchResults: [Track] = []
